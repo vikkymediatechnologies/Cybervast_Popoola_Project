@@ -1,0 +1,450 @@
+/* CyberVast Brand Colors & Variables */
+:root {
+    --cybervast-primary: #0066cc;
+    --cybervast-secondary: #00d4ff;
+    --cybervast-dark: #0a0e27;
+    --cybervast-accent: #ff6b35;
+    --access-bank-green: #005f3f;
+    --careerex-purple: #6366f1;
+    --white: #ffffff;
+    --gray-light: #f3f4f6;
+    --gray-medium: #6b7280;
+    --correct: #10b981;
+    --incorrect: #ef4444;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--cybervast-dark) 0%, #1a1f3d 100%);
+    min-height: 100vh;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   cybervast header styling - FIXED
+   ============================================ */
+.cybervast-header {
+    background: rgba(255, 255, 255, 0.95); /* FIXED: More opaque for readability */
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* FIXED: Darker border */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--cybervast-primary), var(--cybervast-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif; /* FIXED: Capital O */
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-family: 'Orbitron', sans-serif; /* FIXED: Capital O */
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--cybervast-dark); /* FIXED: Dark text for contrast */
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-family: 'Orbitron', sans-serif; /* FIXED: Capital O */
+    font-size: 0.75rem;
+    color: var(--cybervast-primary); /* FIXED: Changed for visibility */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.program-badge {
+    background: linear-gradient(90deg, var(--access-bank-green), var(--careerex-purple));
+    color: var(--white); /* ADDED: Ensure text is white */
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 95, 63, 0.3);
+}
+
+/* ============================================
+   Quiz Container
+   ============================================ */
+.quiz-container {
+    flex: 1;
+    max-width: 800px;
+    width: 90%;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.95); /* FIXED: More opaque */
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    color: var(--cybervast-dark);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem; /* ADDED: Internal padding */
+}
+
+.quiz-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--cybervast-primary), var(--cybervast-secondary), var(--access-bank-green));
+}
+
+/* ============================================
+   Quiz Header - FIXED
+   ============================================ */
+.quiz-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.quiz-title {
+    font-family: 'Orbitron', sans-serif; /* FIXED: Capital O */
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--cybervast-primary), var(--careerex-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.quiz-subtitle {
+    color: var(--gray-medium); /* FIXED: Darker for visibility */
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--gray-light);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cybervast-primary), var(--cybervast-secondary));
+    width: 0%; /* FIXED: Start at 0, not 10% */
+    transition: width 0.4s ease;
+}
+
+.question-counter {
+    font-size: 0.85rem;
+    color: var(--gray-medium);
+    font-weight: 600;
+}
+
+/* ============================================
+   Question Container
+   ============================================ */
+.question-container {
+    margin-bottom: 2rem;
+}
+
+.question-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--cybervast-dark);
+    line-height: 1.4;
+    padding: 1.5rem;
+    background: var(--gray-light);
+    border-radius: 16px;
+    border-left: 5px solid var(--cybervast-primary);
+}
+
+/* ============================================
+   Answer Buttons - NEW/ADDED
+   ============================================ */
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.answer-btn {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--cybervast-dark);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-btn:hover:not(:disabled) {
+    border-color: var(--cybervast-primary);
+    background: rgba(0, 102, 204, 0.05);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+}
+
+.answer-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Option letter (A, B, C, D) */
+.option-letter {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--gray-light);
+    color: var(--cybervast-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+/* Selected state */
+.answer-btn.selected {
+    border-color: var(--cybervast-primary);
+    background: rgba(0, 102, 204, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+/* Correct answer state */
+.answer-btn.correct {
+    border-color: var(--correct);
+    background: rgba(16, 185, 129, 0.15);
+    animation: pulse 0.4s ease;
+}
+
+.answer-btn.correct .option-letter {
+    background: var(--correct);
+    color: var(--white);
+}
+
+/* Incorrect answer state */
+.answer-btn.incorrect {
+    border-color: var(--incorrect);
+    background: rgba(239, 68, 68, 0.15);
+    animation: shake 0.4s ease;
+}
+
+.answer-btn.incorrect .option-letter {
+    background: var(--incorrect);
+    color: var(--white);
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-btn {
+    background: linear-gradient(135deg, var(--cybervast-primary), var(--cybervast-secondary));
+    color: var(--white);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+}
+
+.next-btn:active {
+    transform: translateY(0);
+}
+
+.next-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.next-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* ============================================
+   Results Screen - NEW/ADDED
+   ============================================ */
+.results-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.score-display {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, var(--cybervast-primary), var(--cybervast-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 1rem 0;
+    line-height: 1;
+}
+
+.score-message {
+    font-size: 1.3rem;
+    color: var(--cybervast-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.score-details {
+    color: var(--gray-medium);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, var(--access-bank-green), var(--careerex-purple));
+    color: var(--white);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 95, 63, 0.3);
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 95, 63, 0.4);
+}
+
+/* ============================================
+   Animations - NEW/ADDED
+   ============================================ */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-container {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ============================================
+   Responsive Design - NEW/ADDED
+   ============================================ */
+@media (max-width: 768px) {
+    .cybervast-header {
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .company-name {
+        font-size: 1.1rem;
+    }
+    
+    .program-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .quiz-container {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+    
+    .quiz-title {
+        font-size: 1.8rem;
+    }
+    
+    .question-text {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+    
+    .answer-btn {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .next-btn, .restart-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .navigation {
+        justify-content: center;
+    }
+    
+    .score-display {
+        font-size: 3.5rem;
+    }
+}

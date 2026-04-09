@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>CAlling App</title>
+</head>
+<body>
+    <!-- DIALER SCREEN -->
+    <div id="dialer">
+        <div id="numberDisplay"></div>
+        <div class="keypad">
+            <button onclick="addNum('1')">1</button>
+            <button onclick="addNum('2')">2</button>
+            <button onclick="addNum('3')">3</button>
+            <button onclick="addNum('4')">4</button>
+            <button onclick="addNum('5')">5</button>
+            <button onclick="addNum('6')">6</button>
+            <button onclick="addNum('7')">7</button>
+            <button onclick="addNum('8')">8</button>
+            <button onclick="addNum('9')">9</button>
+            <button onclick="addNum('*')">*</button>
+            <button onclick="addNum('0')">0</button>
+            <button onclick="addNum('#')">#</button>
+        </div>
+        <div class="dialActions">
+            <button class="callBtn" onclick="scheduleCall()">📞</button>
+            <button class="clearBtn" onclick="clearNum()">⌫</button>
+        </div>
+        <input type="number" id="delay" placeholder="Seconds" value="3">
+    </div>
+
+    <!-- INCOMING CALL SCREEN -->
+    <div id="incoming">
+        <div class="top">
+            <div id="callerNumber">Unknown</div>
+            <div class="sub">Incoming Call</div>
+        </div>
+        <div class="middle">
+            <div class="avatar">👤</div>
+        </div>
+        <div class="sliderContainer">
+            <div class="slideTrack">
+                <div id="acceptSlider" class="slideBtn acceptColor" ontouchstart="startSlide(event, 'accept')" onmousedown="startSlide(event, 'accept')">→</div>
+                <span class="slideText">slide to answer</span>
+            </div>
+            <div class="slideTrack">
+                <div id="declineSlider" class="slideBtn declineColor" ontouchstart="startSlide(event, 'decline')" onmousedown="startSlide(event, 'decline')">→</div>
+                <span class="slideText">slide to decline</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVE CALL SCREEN -->
+    <div id="activeCall">
+        <div class="callInfo">
+            <div id="activeNumber">Unknown</div>
+            <div class="callTimer" id="timer">00:00</div>
+        </div>
+        <div class="callActions">
+            <button class="endCall" onclick="endCall()">📞 End</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
